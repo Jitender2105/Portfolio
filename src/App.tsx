@@ -80,6 +80,17 @@ const styles = `
     transform: translateY(0);
   }
 
+  /* Hide navigation on mobile by default */
+  @media (max-width: 767px) {
+    nav {
+      transform: translateY(-100%);
+    }
+    
+    nav.visible {
+      transform: translateY(0);
+    }
+  }
+
   nav a {
     color: #fff;
     text-decoration: none;
@@ -509,31 +520,37 @@ const App = () => {
       if (sec) observer.observe(sec);
     });
 
-    // Handle navigation visibility
+    // Handle navigation visibility (only for desktop/tablet)
     const handleScroll = () => {
       const header = document.querySelector('header');
       if (header && navRef.current) {
         const headerBottom = header.offsetTop + header.offsetHeight;
-        if (window.scrollY > headerBottom) {
+        const isMobile = window.innerWidth <= 767;
+        
+        // Only auto-show navigation on desktop/tablet, not mobile
+        if (!isMobile && window.scrollY > headerBottom) {
           navRef.current.classList.add('visible');
-        } else {
+        } else if (!isMobile) {
           navRef.current.classList.remove('visible');
         }
       }
     };
 
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
 
     return () => {
       observer.disconnect();
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
     };
   }, []);
 
   const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
+    const newIsOpen = !isNavOpen;
+    setIsNavOpen(newIsOpen);
     if (navRef.current) {
-      if (!isNavOpen) {
+      if (newIsOpen) {
         navRef.current.classList.add('visible');
       } else {
         navRef.current.classList.remove('visible');
