@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "react-scripts start",
+    "start": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true && react-scripts start",
+    "start-clean": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true && react-scripts start",
+    "kill-port": "lsof -ti:3000 | xargs kill -9 2>/dev/null || true",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
