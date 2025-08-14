@@ -7,7 +7,10 @@ const styles = `
     background: #f8f9fb;
     color: #212529;
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
+
+  /* Mobile-first responsive design */
   header {
     min-height: 100vh;
     background: url('/5590457.jpg') center/cover no-repeat;
@@ -18,8 +21,9 @@ const styles = `
     align-items: center;
     color: #fff;
     text-align: center;
-    padding: 2rem;
+    padding: 1rem;
   }
+
   header::before {
     content: '';
     position: absolute;
@@ -28,47 +32,111 @@ const styles = `
     background: rgba(0,0,0,0.55);
     z-index: 1;
   }
+
   header * { position: relative; z-index: 2; }
+
   header img {
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     border: 4px solid #fff;
     object-fit: cover;
     margin-bottom: 1rem;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
   }
-  header h1 { font-size: 3.5rem; margin-bottom: 0.5rem; }
-  header p { font-size: 1.3rem; max-width: 800px; }
 
+  header h1 { 
+    font-size: 2rem; 
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  header p { 
+    font-size: 1rem; 
+    max-width: 100%;
+    line-height: 1.5;
+    padding: 0 1rem;
+  }
+
+  /* Mobile Navigation */
   nav {
-    background: rgba(0,0,0,0.85);
-    backdrop-filter: blur(6px);
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(10px);
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
     padding: 1rem;
     position: fixed;
     top: 0;
-    left: 0; right: 0;
+    left: 0; 
+    right: 0;
     z-index: 1000;
     transform: translateY(-100%);
     transition: transform 0.3s ease;
+    max-height: 100vh;
+    overflow-y: auto;
   }
+
   nav.visible {
     transform: translateY(0);
   }
+
   nav a {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
-    padding: 0.5rem 1rem;
+    padding: 0.75rem 1rem;
     border-radius: 8px;
     transition: background 0.3s, transform 0.2s;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    margin: 0.25rem 0;
+    text-align: center;
+    border: 1px solid transparent;
   }
-  nav a:hover {
+
+  nav a:hover, nav a:active {
     background: rgba(255,255,255,0.15);
-    transform: scale(1.05);
+    transform: scale(1.02);
+    border-color: rgba(255,255,255,0.2);
+  }
+
+  /* Mobile Menu Toggle */
+  .nav-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1001;
+    background: rgba(0,0,0,0.8);
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav-toggle span {
+    width: 20px;
+    height: 2px;
+    background: white;
+    transition: 0.3s;
+  }
+
+  .nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
   }
 
   section {
@@ -76,38 +144,209 @@ const styles = `
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 4rem 2rem;
+    padding: 2rem 1rem;
     max-width: 900px;
     margin: auto;
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   }
+
   section.visible {
     opacity: 1;
     transform: translateY(0);
   }
+
   section h2 {
-    font-size: 3rem;
-    margin-bottom: 2rem;
-    border-left: 6px solid #2575fc;
-    padding-left: 1rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #2575fc;
+    padding-left: 0.75rem;
+    line-height: 1.3;
   }
 
   .card {
     background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-    padding: 2rem;
-    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
   }
-  .card ul { padding-left: 1.5rem; }
-  .card li { margin-bottom: 0.7rem; }
-  .card h3 { color: #2575fc; margin-top: 0; }
+
+  .card ul { 
+    padding-left: 1.25rem; 
+    margin: 0;
+  }
+
+  .card li { 
+    margin-bottom: 0.6rem; 
+    line-height: 1.5;
+    font-size: 0.95rem;
+  }
+
+  .card h3 { 
+    color: #2575fc; 
+    margin-top: 0; 
+  }
+
   footer {
     text-align: center;
-    padding: 2rem;
+    padding: 1.5rem;
     background: #f0f2f5;
+    font-size: 0.9rem;
+  }
+
+  /* Tablet Styles */
+  @media (min-width: 768px) {
+    header {
+      padding: 2rem;
+    }
+
+    header img {
+      width: 140px;
+      height: 140px;
+    }
+
+    header h1 { 
+      font-size: 2.5rem; 
+    }
+
+    header p { 
+      font-size: 1.1rem; 
+      max-width: 600px;
+    }
+
+    nav {
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 1rem 2rem;
+    }
+
+    nav a {
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    .nav-toggle {
+      display: none;
+    }
+
+    section {
+      padding: 3rem 2rem;
+    }
+
+    section h2 {
+      font-size: 2.2rem;
+      border-left: 5px solid #2575fc;
+      padding-left: 1rem;
+    }
+
+    .card {
+      padding: 2rem;
+      border-radius: 16px;
+    }
+
+    .card li {
+      font-size: 1rem;
+    }
+  }
+
+  /* Desktop Styles */
+  @media (min-width: 1024px) {
+    header {
+      padding: 2rem;
+    }
+
+    header img {
+      width: 160px;
+      height: 160px;
+    }
+
+    header h1 { 
+      font-size: 3.5rem; 
+    }
+
+    header p { 
+      font-size: 1.3rem; 
+      max-width: 800px;
+    }
+
+    nav {
+      padding: 1rem;
+    }
+
+    nav a {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+    }
+
+    section {
+      padding: 4rem 2rem;
+    }
+
+    section h2 {
+      font-size: 3rem;
+      border-left: 6px solid #2575fc;
+      padding-left: 1rem;
+    }
+
+    .card {
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .card li {
+      font-size: 1rem;
+    }
+
+    footer {
+      padding: 2rem;
+      font-size: 1rem;
+    }
+  }
+
+  /* Large Desktop Styles */
+  @media (min-width: 1440px) {
+    section {
+      max-width: 1200px;
+    }
+  }
+
+  /* Touch-friendly improvements */
+  @media (hover: none) and (pointer: coarse) {
+    nav a {
+      padding: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .card {
+      padding: 1.75rem;
+    }
+
+    .card li {
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  /* Landscape orientation adjustments */
+  @media (orientation: landscape) and (max-height: 600px) {
+    header {
+      min-height: 100vh;
+      padding: 1rem;
+    }
+
+    header img {
+      width: 80px;
+      height: 80px;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+    }
+
+    header p {
+      font-size: 0.9rem;
+    }
   }
 `;
 
@@ -252,6 +491,7 @@ const sectionsData = [
 const App = () => {
   const sectionRefs = useRef<(HTMLElement | null)[]>([]);
   const navRef = useRef<HTMLElement>(null);
+  const [isNavOpen, setIsNavOpen] = React.useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -290,6 +530,24 @@ const App = () => {
     };
   }, []);
 
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+    if (navRef.current) {
+      if (!isNavOpen) {
+        navRef.current.classList.add('visible');
+      } else {
+        navRef.current.classList.remove('visible');
+      }
+    }
+  };
+
+  const closeNav = () => {
+    setIsNavOpen(false);
+    if (navRef.current) {
+      navRef.current.classList.remove('visible');
+    }
+  };
+
   return (
     <>
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
@@ -324,9 +582,24 @@ const App = () => {
         Built by Jitender Kumar | Let’s connect and build something great 🚀
       </footer>
 
+      {/* Mobile Navigation Toggle */}
+      <button 
+        className={`nav-toggle ${isNavOpen ? 'active' : ''}`} 
+        onClick={toggleNav}
+        aria-label="Toggle navigation menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <nav ref={navRef}>
         {sectionsData.map(s => (
-          <a key={s.id} href={`#${s.id}`}>
+          <a 
+            key={s.id} 
+            href={`#${s.id}`}
+            onClick={closeNav}
+          >
             {s.navText}
           </a>
         ))}
