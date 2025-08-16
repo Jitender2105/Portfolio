@@ -23,7 +23,30 @@ const styles = `
     text-align: center;
     padding: 1rem;
   }
+.scroll-down {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  z-index: 3;
+  animation: bounce 1.8s infinite;
+  text-decoration: none;
+}
 
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translate(-50%, 0);
+  }
+  40% {
+    transform: translate(-50%, -10px);
+  }
+  60% {
+    transform: translate(-50%, -5px);
+  }
+}
   header::before {
     content: '';
     position: absolute;
@@ -574,6 +597,7 @@ const App = () => {
         <img src='/pic.jpg' alt="Jitender Kumar" />
         <h1>Jitender Kumar</h1>
         <p>General Manager(Product & Technology) | Digital Transformation | AI & Emerging Tech | Customer Experience</p>
+        <a href="#journey" className="scroll-down" aria-label="Scroll Down">↓</a>
       </header>
 
       {sectionsData.map((section, idx) => (
