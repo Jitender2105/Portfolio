@@ -571,7 +571,7 @@ const App = () => {
       <style>{styles}</style>
 
       <header>
-        <img src="/9bb663b3-7781-45e9-aee7-cbc9b8c8140e.jpeg" alt="Jitender Kumar" />
+        <img src="/pic.jpeg" alt="Jitender Kumar" />
         <h1>Jitender Kumar</h1>
         <p>General Manager(Product & Technology) | Digital Transformation | AI & Emerging Tech | Customer Experience</p>
       </header>
