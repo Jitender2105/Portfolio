@@ -230,14 +230,14 @@ const ventureCards = [
     role: "Co-Founder",
     copy:
       "Building a holistic student-development platform across academics, creativity, leadership and public speaking.",
-    link: "https://topmate.io/jitenderk2105/",
+    link: "https://eduquestiq.com/",
   },
   {
     name: "HomeInteriors360",
     role: "Founder",
     copy:
       "Exploring home interiors discovery and decision support for customers who need clarity before investing in their spaces.",
-    link: "https://portfolio-blush-ten-79.vercel.app/",
+    link: "https://homeinteriors360.com/",
   },
 ];
 
