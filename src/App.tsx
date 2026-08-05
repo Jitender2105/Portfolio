@@ -21,6 +21,19 @@ type Role = {
   impact: string;
 };
 
+type OperatingCard = {
+  step: string;
+  title: string;
+  copy: string;
+};
+
+type SkillArea = {
+  title: string;
+  copy: string;
+  proof: string;
+  skills: string[];
+};
+
 const metrics: Metric[] = [
   { value: "10+ yrs", label: "Product, AI, commerce, CRM and digital transformation" },
   { value: "INR 13 Cr+", label: "Direct savings delivered through automation and governance" },
@@ -133,9 +146,144 @@ const tools = [
   "Oracle HRMS",
 ];
 
+const operatingCards: OperatingCard[] = [
+  {
+    step: "Frame",
+    title: "Turn ambiguity into a measurable problem",
+    copy:
+      "I start by separating symptoms from business outcomes, mapping stakeholders, users, journeys, systems and the money metric that should move.",
+  },
+  {
+    step: "Prioritize",
+    title: "Choose bets with adoption and ROI built in",
+    copy:
+      "I size impact, complexity, dependencies and change-management effort before roadmap commitments, so the team knows what to build and why now.",
+  },
+  {
+    step: "Design",
+    title: "Convert workflows into simple product behavior",
+    copy:
+      "I translate complex enterprise, commerce and growth workflows into PRDs, service maps, data events, edge cases and release-ready experiences.",
+  },
+  {
+    step: "Ship",
+    title: "Run tight delivery across product, tech and business",
+    copy:
+      "I keep engineering, QA, design, vendors, CXOs and business users aligned through agile rituals, UAT discipline and clear launch ownership.",
+  },
+  {
+    step: "Scale",
+    title: "Measure, automate and improve after launch",
+    copy:
+      "I track adoption, funnel movement, operational savings and support signals, then use the data to automate, simplify or double down.",
+  },
+];
+
+const skillAreas: SkillArea[] = [
+  {
+    title: "0-to-1 product discovery",
+    copy:
+      "Shape new products from unclear business needs into opportunity sizing, MVP scope, launch plan and measurable product behavior.",
+    proof: "Used across Tech Van Engineer, VR kitchen design, College Predictor, lead platforms and enterprise workflows.",
+    skills: ["Problem framing", "PRDs", "MVP scope", "User journeys", "UAT"],
+  },
+  {
+    title: "AI and automation portfolio",
+    copy:
+      "Identify practical AI use cases, build enablement roadmaps and connect models, data, workflows and adoption plans.",
+    proof: "Applied to AI/ML study planners, recommendations, predictive analytics, segmentation and enterprise AI use cases.",
+    skills: ["GenAI use cases", "Predictive analytics", "Segmentation", "OpenAI", "Data workflows"],
+  },
+  {
+    title: "Commerce and CRM systems",
+    copy:
+      "Build connected customer, order, payment, loyalty, POS, kiosk, service and CRM journeys across online and offline channels.",
+    proof: "Enabled 70% business revenue through POS and kiosk systems and improved satisfaction by 30% through CRM modernization.",
+    skills: ["POS", "OMS", "Payments", "Loyalty", "CRM", "Customer engagement"],
+  },
+  {
+    title: "Growth, SEO and funnel analytics",
+    copy:
+      "Use data architecture, page speed, content systems, personalization and funnel improvements to grow acquisition and conversion.",
+    proof: "Scaled annual organic traffic from 100M to 400M and registrations from 1M to 12M at Careers360.",
+    skills: ["SEO architecture", "GA", "Firebase", "GTM", "Power BI", "SQL"],
+  },
+  {
+    title: "Enterprise transformation delivery",
+    copy:
+      "Modernize workflows by integrating core systems, reducing manual effort and making adoption manageable for large teams.",
+    proof: "Delivered INR 13 Cr+ savings across travel, manpower, governance and workflow digitization programs.",
+    skills: ["SAP", "Oracle HRMS", "Vendor governance", "Budget ownership", "Change management"],
+  },
+  {
+    title: "Product leadership and operating rhythm",
+    copy:
+      "Lead cross-functional teams with clear goals, communication, release planning and stakeholder confidence.",
+    proof: "Led product, technology, QA, infrastructure and support teams across enterprise, retail and EdTech environments.",
+    skills: ["Roadmaps", "Agile", "CXO communication", "Team leadership", "Release planning"],
+  },
+];
+
+const ventureCards = [
+  {
+    name: "EduquestIQ",
+    role: "Co-Founder",
+    copy:
+      "Building a holistic student-development platform across academics, creativity, leadership and public speaking.",
+    link: "https://topmate.io/jitenderk2105/",
+  },
+  {
+    name: "HomeInteriors360",
+    role: "Founder",
+    copy:
+      "Exploring home interiors discovery and decision support for customers who need clarity before investing in their spaces.",
+    link: "https://portfolio-blush-ten-79.vercel.app/",
+  },
+];
+
+const projectHighlights = [
+  {
+    title: "Field Technical Service digitization",
+    context: "Dalmia Bharat",
+    result:
+      "Mobile-first field engineer products for site identification, lead capture, journey planning and conversion of construction projects into Dalmia Sites.",
+  },
+  {
+    title: "AI-powered lead conversion",
+    context: "Dalmia Bharat",
+    result:
+      "Lead scoring and automated tracking tools that connect technical field service activity with sales execution.",
+  },
+  {
+    title: "HR technology and onboarding overhaul",
+    context: "Dalmia Bharat",
+    result:
+      "AI-integrated HRMS, talent acquisition and digital onboarding workflows for distributed teams.",
+  },
+  {
+    title: "Legal and compliance digitization",
+    context: "Dalmia Bharat",
+    result:
+      "AI-driven CLM and compliance dashboard direction for vendor, contract and regulatory risk management.",
+  },
+  {
+    title: "PWA, OMS and B2B negotiated orders",
+    context: "HippoHomes",
+    result:
+      "Progressive web apps, order management, inventory tracking and negotiated bulk-order workflows across retail journeys.",
+  },
+  {
+    title: "Exam alerts, AMP and predictor tools",
+    context: "Careers360",
+    result:
+      "Exam alert products with 1L+ alerts set, AMP/article growth, College Predictor, Rank Predictor and college comparison journeys.",
+  },
+];
+
 const navItems = [
   ["Work", "work"],
   ["Approach", "approach"],
+  ["Skills", "skills"],
   ["Experience", "experience"],
   ["Contact", "contact"],
 ];
@@ -376,6 +524,7 @@ const styles = `
 
   .section {
     padding: clamp(4rem, 8vw, 7rem) clamp(1rem, 4vw, 3rem);
+    scroll-margin-top: 6rem;
   }
 
   .section-header {
@@ -534,6 +683,13 @@ const styles = `
     grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.45fr);
   }
 
+  .operating-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    margin-top: 1rem;
+  }
+
   .approach-panel {
     padding: clamp(1.25rem, 3vw, 2rem);
   }
@@ -565,11 +721,104 @@ const styles = `
     color: var(--blue);
   }
 
+  .operating-card {
+    background: var(--ink);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    color: white;
+    min-height: 250px;
+    padding: 1rem;
+  }
+
+  .operating-card span {
+    background: var(--lime);
+    border-radius: 8px;
+    color: var(--ink);
+    display: inline-flex;
+    font-size: 0.8rem;
+    font-weight: 850;
+    margin-bottom: 1rem;
+    padding: 0.45rem 0.55rem;
+  }
+
+  .operating-card h3 {
+    font-size: 1.25rem;
+    line-height: 1.08;
+    margin: 0 0 0.8rem;
+  }
+
+  .operating-card p {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.94rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+
   .skill-cloud {
     align-content: start;
     display: flex;
     flex-wrap: wrap;
     gap: 0.55rem;
+  }
+
+  .skill-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .skill-area {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    min-height: 360px;
+    overflow: hidden;
+  }
+
+  .skill-area-top {
+    border-bottom: 1px solid var(--line);
+    padding: 1.25rem;
+  }
+
+  .skill-area:nth-child(1) .skill-area-top,
+  .skill-area:nth-child(4) .skill-area-top {
+    background: linear-gradient(135deg, var(--lime), #fffdfa 70%);
+  }
+
+  .skill-area:nth-child(2) .skill-area-top,
+  .skill-area:nth-child(5) .skill-area-top {
+    background: linear-gradient(135deg, var(--mint), #fffdfa 70%);
+  }
+
+  .skill-area:nth-child(3) .skill-area-top,
+  .skill-area:nth-child(6) .skill-area-top {
+    background: linear-gradient(135deg, var(--coral), #fffdfa 70%);
+  }
+
+  .skill-area h3 {
+    font-size: 1.45rem;
+    line-height: 1.08;
+    margin: 0 0 0.75rem;
+  }
+
+  .skill-area p {
+    color: #34393b;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .proof-strip {
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    padding: 1rem 1.25rem;
+  }
+
+  .skill-area .tags {
+    padding-top: 1rem;
   }
 
   .timeline {
@@ -648,6 +897,79 @@ const styles = `
     color: var(--ink);
   }
 
+  .venture-grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 1rem;
+  }
+
+  .venture-card {
+    background: var(--ink);
+    border-radius: 8px;
+    color: white;
+    min-height: 230px;
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .venture-card:nth-child(2) {
+    background: #24312f;
+  }
+
+  .venture-card h3 {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1;
+    margin: 0.6rem 0 1rem;
+  }
+
+  .venture-card p {
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.55;
+    margin: 0 0 1.25rem;
+  }
+
+  .venture-card .button {
+    border-color: rgba(255, 255, 255, 0.24);
+    color: white;
+  }
+
+  .project-list {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .project-row {
+    align-items: center;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(180px, 0.45fr) minmax(0, 1fr);
+    padding: 1rem;
+  }
+
+  .project-row strong {
+    display: block;
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
+
+  .project-row span {
+    color: var(--blue);
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 850;
+    margin-top: 0.4rem;
+    text-transform: uppercase;
+  }
+
+  .project-row p {
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+
   footer {
     color: var(--muted);
     padding: 2rem clamp(1rem, 4vw, 3rem);
@@ -663,6 +985,12 @@ const styles = `
 
     .case-grid {
       grid-template-columns: 1fr;
+    }
+
+    .operating-grid,
+    .skill-grid,
+    .venture-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .case-card {
@@ -682,22 +1010,26 @@ const styles = `
 
     .nav-links {
       justify-content: flex-start;
-      flex-wrap: nowrap;
-      overflow-x: auto;
+      flex-wrap: wrap;
+      overflow-x: visible;
       padding-bottom: 0.1rem;
       width: 100%;
     }
 
     .nav-links a {
-      flex: 0 0 auto;
-      font-size: 0.82rem;
+      flex: 1 1 calc(33.333% - 0.35rem);
+      font-size: 0.78rem;
       justify-content: center;
-      padding: 0.68rem 0.72rem;
+      padding: 0.66rem 0.52rem;
     }
 
     .hero {
       min-height: auto;
       padding-top: 2rem;
+    }
+
+    .section {
+      scroll-margin-top: 10.5rem;
     }
 
     .hero-visual,
@@ -718,6 +1050,10 @@ const styles = `
     }
 
     .mini-metrics,
+    .operating-grid,
+    .skill-grid,
+    .venture-grid,
+    .project-row,
     .timeline-item,
     .education {
       grid-template-columns: 1fr;
@@ -891,7 +1227,8 @@ function App() {
           <h2>How I operate</h2>
           <p>
             My portfolio sits at the intersection of product strategy, operating discipline and business impact.
-            I prefer crisp problem framing, measurable bets and adoption plans that survive launch day.
+            I prefer crisp problem framing, measurable bets, strong execution rituals and adoption plans that
+            survive launch day.
           </p>
         </div>
 
@@ -915,6 +1252,14 @@ function App() {
                 <b>03</b>
                 <span>Design adoption, governance and support models early so transformation does not stop at shipping.</span>
               </li>
+              <li>
+                <b>04</b>
+                <span>Keep CXOs, business owners, product, tech, QA, infra and vendors operating from the same source of truth.</span>
+              </li>
+              <li>
+                <b>05</b>
+                <span>Use post-launch signals to simplify the workflow, reduce cost, improve conversion or unlock the next bet.</span>
+              </li>
             </ul>
           </div>
 
@@ -936,6 +1281,88 @@ function App() {
               ))}
             </div>
           </div>
+        </div>
+
+        <div className="operating-grid" aria-label="Operating model">
+          {operatingCards.map((card) => (
+            <article className="operating-card" key={card.step}>
+              <span>{card.step}</span>
+              <h3>{card.title}</h3>
+              <p>{card.copy}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section" id="skills">
+        <div className="section-header">
+          <h2>Project skills</h2>
+          <p>
+            A practical view of where I create leverage: product discovery, AI use cases, enterprise systems,
+            commerce journeys, growth architecture and leadership cadence.
+          </p>
+        </div>
+
+        <div className="skill-grid">
+          {skillAreas.map((area) => (
+            <article className="skill-area" key={area.title}>
+              <div className="skill-area-top">
+                <h3>{area.title}</h3>
+                <p>{area.copy}</p>
+              </div>
+              <div className="proof-strip">{area.proof}</div>
+              <div className="tags">
+                {area.skills.map((skill) => (
+                  <span key={skill}>{skill}</span>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section" id="ventures">
+        <div className="section-header">
+          <h2>Builder mode</h2>
+          <p>
+            Beyond corporate product leadership, I keep exploring startup ideas and advisory-style problem
+            spaces where product thinking can create new categories.
+          </p>
+        </div>
+
+        <div className="venture-grid">
+          {ventureCards.map((venture) => (
+            <article className="venture-card" key={venture.name}>
+              <p className="eyebrow">{venture.role}</p>
+              <h3>{venture.name}</h3>
+              <p>{venture.copy}</p>
+              <a className="button" href={venture.link} rel="noreferrer" target="_blank">
+                Explore
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section" id="project-highlights">
+        <div className="section-header">
+          <h2>More product highlights</h2>
+          <p>
+            Additional projects pulled from the LinkedIn profile export, shown as a fast scan of range,
+            systems thinking and execution depth.
+          </p>
+        </div>
+
+        <div className="project-list">
+          {projectHighlights.map((project) => (
+            <article className="project-row" key={project.title}>
+              <div>
+                <strong>{project.title}</strong>
+                <span>{project.context}</span>
+              </div>
+              <p>{project.result}</p>
+            </article>
+          ))}
         </div>
       </section>
 
