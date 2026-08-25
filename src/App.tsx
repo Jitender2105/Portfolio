@@ -31,39 +31,41 @@ type SkillArea = {
   title: string;
   copy: string;
   proof: string;
+  focus: string;
   skills: string[];
 };
 
 const metrics: Metric[] = [
-  { value: "10+ yrs", label: "Product, AI, commerce, CRM and digital transformation" },
+  { value: "AI + LLM", label: "Agentic AI, GenAI use cases, AI/ML models and predictive analytics" },
   { value: "INR 13 Cr+", label: "Direct savings delivered through automation and governance" },
-  { value: "400M", label: "Annual organic traffic scaled at Careers360" },
+  { value: "20+", label: "Enterprise applications across SAP, Oracle HRMS, CRM and data workflows" },
   { value: "800%", label: "Qualified lead growth through B2B lead platform rebuilds" },
 ];
 
 const caseStudies: CaseStudy[] = [
   {
-    eyebrow: "Enterprise AI and transformation",
-    title: "Dalmia Bharat: operating system for enterprise workflows",
+    eyebrow: "Agentic AI, automation and enterprise transformation",
+    title: "Dalmia Bharat: AI-led operating system for enterprise workflows",
     summary:
-      "Owned product roadmaps across sales, technical services, HR, legal, CRM, travel, onboarding, manpower and business workflows for a large enterprise environment.",
+      "Owned AI and automation-led product roadmaps across sales, technical services, HR, legal, CRM, travel, onboarding, manpower and enterprise workflows.",
     metrics: [
       { value: "20+", label: "enterprise applications led" },
       { value: "INR 8 Cr+", label: "travel and expense savings" },
       { value: "30%", label: "customer satisfaction improvement" },
     ],
     moves: [
+      "Defined AI/automation product strategy with CXOs, plant teams, vendors and technology partners.",
       "Integrated Oracle HRMS, SAP, CRM, data warehouse and travel systems into business-critical workflows.",
       "Built Tech Van Engineer workflows for PJP planning, lead creation, site visits and INR 10 Cr business budget optimization.",
-      "Designed manpower management linked with PO flows, enabling accurate plant entry tracking and INR 5 Cr savings.",
+      "Designed manpower management linked with PO flows, enabling INR 5 Cr savings through process digitization.",
     ],
-    tags: ["AI enablement", "CRM", "ERP", "CXO alignment"],
+    tags: ["Agentic AI", "RPA", "CRM", "ERP", "CXO alignment"],
   },
   {
-    eyebrow: "Omnichannel commerce",
-    title: "HippoHomes: full-stack retail technology from 2 to 7 stores",
+    eyebrow: "AI commerce, personalization and automation",
+    title: "HippoHomes: AI-powered omnichannel retail platform",
     summary:
-      "Led product, technology, QA, infrastructure and support teams for e-commerce, POS, kiosks, OMS, payments, loyalty, search and customer engagement.",
+      "Led product, technology, QA, infrastructure and support teams for e-commerce, AI search, POS, kiosks, OMS, payments, loyalty and customer engagement.",
     metrics: [
       { value: "70%", label: "business revenue enabled by POS and kiosks" },
       { value: "60%", label: "IT operating cost reduction" },
@@ -71,14 +73,15 @@ const caseStudies: CaseStudy[] = [
     ],
     moves: [
       "Built a full-stack commerce platform with catalog, AI-powered search, payments, order management and backend integrations.",
-      "Rolled out WhatsApp invoicing, chatbot support, conversational order flows, return support and engagement journeys.",
-      "Introduced VR kitchen design, loyalty, referral, rewards, recommendation and predictive analytics programs.",
+      "Rolled out WhatsApp invoicing, chatbot support, conversational order flows and AI-assisted customer engagement journeys.",
+      "Deployed AI-powered personalization, recommendation engine, predictive analytics and customer segmentation.",
+      "Introduced VR kitchen design, loyalty, referral and reward programs to improve home-improvement journeys.",
     ],
-    tags: ["E-commerce", "RetailTech", "AI search", "Loyalty"],
+    tags: ["AI search", "Recommendations", "Predictive analytics", "RetailTech"],
   },
   {
-    eyebrow: "EdTech growth systems",
-    title: "Careers360: product-led growth at national scale",
+    eyebrow: "AI/ML learning products and growth systems",
+    title: "Careers360: AI/ML-powered EdTech growth at national scale",
     summary:
       "Led B2B and B2C EdTech transformation across acquisition, lead generation, learning products, content platforms and student engagement tools.",
     metrics: [
@@ -88,10 +91,11 @@ const caseStudies: CaseStudy[] = [
     ],
     moves: [
       "Scaled College Predictor, Rank Predictor, career guidance apps, college pages, exam pages, articles, QnA and lead platforms.",
-      "Developed AI/ML-powered study planner, recommendation engine and personalized learning journeys.",
+      "Developed AI/ML-powered personalized study planner, recommendation engine and learning journeys.",
+      "Built AI-enabled learning flows across video lectures, online tests, faculty chat and custom timetables.",
       "Improved page speed, UX, SEO architecture and analytics-led funnel optimization across high-volume journeys.",
     ],
-    tags: ["SEO products", "Funnel growth", "AI/ML", "Learning platforms"],
+    tags: ["AI/ML", "Recommendation engine", "Funnel analytics", "Learning platforms"],
   },
 ];
 
@@ -101,7 +105,7 @@ const roles: Role[] = [
     company: "Dalmia Bharat Limited",
     title: "Assistant General Manager - AI Product and Digital Transformation",
     impact:
-      "Leading enterprise application modernization, AI-led use cases, workflow digitization and cross-functional transformation roadmaps.",
+      "Leading AI-product strategy, Agentic AI/automation use cases, enterprise application modernization and cross-functional transformation roadmaps.",
   },
   {
     period: "Sept 2022 - Sept 2025",
@@ -120,30 +124,47 @@ const roles: Role[] = [
 ];
 
 const strengths = [
+  "AI / ML and Agentic AI strategy",
+  "Generative AI and LLM use cases",
+  "Automation and RPA programs",
+  "Predictive analytics",
   "Product strategy and roadmap",
-  "AI-led business transformation",
-  "E-commerce and omnichannel retail",
-  "CRM and ERP modernization",
-  "Workflow digitization",
-  "Analytics and funnel growth",
-  "Vendor and budget governance",
-  "Cross-functional leadership",
+  "CRM and ERP transformation",
+  "Platform modernization",
+  "CXO stakeholder leadership",
 ];
 
 const tools = [
+  "OpenAI",
+  "LLM",
+  "Agentic AI",
+  "GenAI",
+  "AI/ML models",
+  "RPA",
+  "Workflow automation",
+  "SQL",
+  "Snowflake",
+  "Power BI",
   "GA",
   "Firebase",
   "GTM",
-  "Power BI",
-  "SQL",
-  "Snowflake",
   "Jira",
   "Confluence",
   "AWS",
   "MERN",
-  "OpenAI",
   "SAP",
   "Oracle HRMS",
+];
+
+const aiHighlights = [
+  "Agentic AI strategy",
+  "Generative AI / LLM use cases",
+  "AI/ML models",
+  "Predictive analytics",
+  "RPA and workflow automation",
+  "Customer segmentation",
+  "Recommendation engines",
+  "Conversational AI",
 ];
 
 const operatingCards: OperatingCard[] = [
@@ -185,34 +206,47 @@ const skillAreas: SkillArea[] = [
     copy:
       "Shape new products from unclear business needs into opportunity sizing, MVP scope, launch plan and measurable product behavior.",
     proof: "Used across Tech Van Engineer, VR kitchen design, College Predictor, lead platforms and enterprise workflows.",
+    focus: "0-to-1",
     skills: ["Problem framing", "PRDs", "MVP scope", "User journeys", "UAT"],
   },
   {
-    title: "AI and automation portfolio",
+    title: "AI, Agentic AI and LLM strategy",
     copy:
-      "Identify practical AI use cases, build enablement roadmaps and connect models, data, workflows and adoption plans.",
-    proof: "Applied to AI/ML study planners, recommendations, predictive analytics, segmentation and enterprise AI use cases.",
-    skills: ["GenAI use cases", "Predictive analytics", "Segmentation", "OpenAI", "Data workflows"],
+      "Identify practical AI opportunities, convert them into product roadmaps and connect LLMs, models, data, workflows and adoption plans.",
+    proof: "Resume focus: Agentic AI, GenAI/LLM, AI/ML models, predictive analytics and enterprise AI use cases.",
+    focus: "AI CORE",
+    skills: ["Agentic AI", "LLM", "GenAI use cases", "OpenAI", "AI/ML models"],
+  },
+  {
+    title: "Automation and RPA transformation",
+    copy:
+      "Digitize manual workflows, remove operational leakage and build governance-backed process automation across enterprise systems.",
+    proof: "Delivered INR 13 Cr+ direct savings through travel, expense, manpower, GST compliance and workflow automation programs.",
+    focus: "AUTOMATION",
+    skills: ["RPA", "Workflow automation", "Process digitization", "Policy control", "UAT"],
   },
   {
     title: "Commerce and CRM systems",
     copy:
-      "Build connected customer, order, payment, loyalty, POS, kiosk, service and CRM journeys across online and offline channels.",
-    proof: "Enabled 70% business revenue through POS and kiosk systems and improved satisfaction by 30% through CRM modernization.",
-    skills: ["POS", "OMS", "Payments", "Loyalty", "CRM", "Customer engagement"],
+      "Build AI-assisted customer, order, payment, loyalty, POS, kiosk, service and CRM journeys across online and offline channels.",
+    proof: "Improved customer satisfaction by 30% through next-generation CRM across sales, service, ordering and data warehouse.",
+    focus: "CRM + CX",
+    skills: ["CRM", "POS", "OMS", "Payments", "Loyalty", "Chatbots"],
   },
   {
     title: "Growth, SEO and funnel analytics",
     copy:
-      "Use data architecture, page speed, content systems, personalization and funnel improvements to grow acquisition and conversion.",
+      "Use data architecture, page speed, content systems, personalization, segmentation and funnel improvements to grow acquisition and conversion.",
     proof: "Scaled annual organic traffic from 100M to 400M and registrations from 1M to 12M at Careers360.",
-    skills: ["SEO architecture", "GA", "Firebase", "GTM", "Power BI", "SQL"],
+    focus: "ANALYTICS",
+    skills: ["Predictive analytics", "SEO architecture", "GA", "Firebase", "Power BI", "SQL"],
   },
   {
     title: "Enterprise transformation delivery",
     copy:
       "Modernize workflows by integrating core systems, reducing manual effort and making adoption manageable for large teams.",
     proof: "Delivered INR 13 Cr+ savings across travel, manpower, governance and workflow digitization programs.",
+    focus: "ENTERPRISE",
     skills: ["SAP", "Oracle HRMS", "Vendor governance", "Budget ownership", "Change management"],
   },
   {
@@ -220,6 +254,7 @@ const skillAreas: SkillArea[] = [
     copy:
       "Lead cross-functional teams with clear goals, communication, release planning and stakeholder confidence.",
     proof: "Led product, technology, QA, infrastructure and support teams across enterprise, retail and EdTech environments.",
+    focus: "LEADERSHIP",
     skills: ["Roadmaps", "Agile", "CXO communication", "Team leadership", "Release planning"],
   },
 ];
@@ -299,6 +334,8 @@ const styles = `
     --coral: #ff7a59;
     --mint: #9ee6cf;
     --blue: #3c6df0;
+    --violet: #8c5cf6;
+    --amber: #ffb020;
   }
 
   * {
@@ -435,6 +472,41 @@ const styles = `
     max-width: 760px;
   }
 
+  .highlight {
+    color: var(--blue);
+    font-weight: 900;
+  }
+
+  .highlight.hot {
+    color: #d94b2b;
+  }
+
+  .highlight.ai {
+    background: var(--ink);
+    border-radius: 8px;
+    color: var(--lime);
+    display: inline-block;
+    line-height: 1.05;
+    padding: 0.08em 0.16em;
+  }
+
+  .hero-proof {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.35rem;
+  }
+
+  .hero-proof span {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    color: #25292b;
+    font-size: 0.86rem;
+    font-weight: 850;
+    padding: 0.58rem 0.7rem;
+  }
+
   .hero-actions {
     display: flex;
     flex-wrap: wrap;
@@ -491,6 +563,21 @@ const styles = `
     margin: 0;
   }
 
+  .status-stack {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+  }
+
+  .status-stack span {
+    background: #f2eee6;
+    border-radius: 8px;
+    color: var(--ink);
+    font-size: 0.8rem;
+    font-weight: 850;
+    padding: 0.5rem;
+  }
+
   .metrics-band {
     border-block: 1px solid var(--line);
     display: grid;
@@ -512,6 +599,15 @@ const styles = `
     display: block;
     font-size: clamp(2rem, 4vw, 4.2rem);
     line-height: 0.98;
+  }
+
+  .metric:first-child {
+    background: var(--ink);
+    color: white;
+  }
+
+  .metric:first-child span {
+    color: rgba(255, 255, 255, 0.72);
   }
 
   .metric span {
@@ -767,6 +863,52 @@ const styles = `
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .ai-highlight-band {
+    background: var(--ink);
+    border-radius: 8px;
+    color: white;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr);
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+
+  .ai-highlight-copy {
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .ai-highlight-copy h3 {
+    font-size: clamp(2rem, 4vw, 4rem);
+    line-height: 0.98;
+    margin: 0 0 1rem;
+  }
+
+  .ai-highlight-copy p {
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .ai-highlight-list {
+    align-content: start;
+    background: linear-gradient(135deg, var(--lime), var(--mint));
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .ai-highlight-list span {
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(17, 19, 20, 0.12);
+    border-radius: 8px;
+    color: var(--ink);
+    font-size: clamp(0.92rem, 1.5vw, 1.15rem);
+    font-weight: 900;
+    padding: 0.75rem 0.85rem;
+  }
+
   .skill-area {
     background: var(--surface);
     border: 1px solid var(--line);
@@ -801,6 +943,19 @@ const styles = `
     font-size: 1.45rem;
     line-height: 1.08;
     margin: 0 0 0.75rem;
+  }
+
+  .skill-focus {
+    background: var(--ink);
+    border-radius: 8px;
+    color: var(--lime);
+    display: inline-flex;
+    font-size: 0.76rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.85rem;
+    padding: 0.42rem 0.52rem;
+    text-transform: uppercase;
   }
 
   .skill-area p {
@@ -964,6 +1119,10 @@ const styles = `
     text-transform: uppercase;
   }
 
+  .project-row:nth-child(-n + 4) span {
+    color: #d94b2b;
+  }
+
   .project-row p {
     color: var(--muted);
     line-height: 1.55;
@@ -988,6 +1147,7 @@ const styles = `
     }
 
     .operating-grid,
+    .ai-highlight-band,
     .skill-grid,
     .venture-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1051,6 +1211,7 @@ const styles = `
 
     .mini-metrics,
     .operating-grid,
+    .ai-highlight-band,
     .skill-grid,
     .venture-grid,
     .project-row,
@@ -1137,13 +1298,23 @@ function App() {
 
       <header className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow">Product leader for AI, commerce and enterprise transformation</p>
-          <h1>Building products that move business numbers.</h1>
+          <p className="eyebrow">Director - Product Management | AI and Digital Transformation</p>
+          <h1>
+            Building <span className="highlight ai">AI products</span> that move business numbers.
+          </h1>
           <p className="hero-subtitle">
-            I am Jitender Kumar, a product and digital transformation leader with 10+ years across AI-led
-            products, CRM, ERP, EdTech, e-commerce and omnichannel retail. I turn ambiguous business goals
-            into roadmaps, systems and measurable outcomes.
+            I am Jitender Kumar, a <strong className="highlight">Product and Digital Transformation leader</strong> with
+            10+ years across <strong className="highlight hot">Agentic AI</strong>, <strong className="highlight hot">GenAI/LLM</strong>,
+            AI/ML products, automation, CRM, ERP, e-commerce and RetailTech. I turn business goals into
+            roadmaps, intelligent systems and measurable outcomes.
           </p>
+          <div className="hero-proof" aria-label="AI capability highlights">
+            <span>Agentic AI</span>
+            <span>GenAI / LLM</span>
+            <span>Machine Learning</span>
+            <span>Automation / RPA</span>
+            <span>Predictive Analytics</span>
+          </div>
           <div className="hero-actions" aria-label="Primary actions">
             <a className="button primary" href="#work">
               View selected work
@@ -1168,7 +1339,15 @@ function App() {
           </div>
           <aside className="status-card">
             <strong>Currently at Dalmia Bharat Limited</strong>
-            <p>Assistant General Manager - AI Product and Digital Transformation, leading enterprise workflows and AI enablement.</p>
+            <p>
+              Assistant General Manager - <strong>AI Product and Digital Transformation</strong> leading enterprise
+              workflows, automation and AI enablement.
+            </p>
+            <div className="status-stack">
+              <span>20+ enterprise apps</span>
+              <span>INR 13 Cr+ savings</span>
+              <span>AI/automation-led roadmaps</span>
+            </div>
           </aside>
         </div>
       </header>
@@ -1296,17 +1475,35 @@ function App() {
 
       <section className="section" id="skills">
         <div className="section-header">
-          <h2>Project skills</h2>
+          <h2>AI skill highlights</h2>
           <p>
-            A practical view of where I create leverage: product discovery, AI use cases, enterprise systems,
-            commerce journeys, growth architecture and leadership cadence.
+            The new positioning is intentionally sharper: <strong className="highlight hot">Agentic AI</strong>,
+            <strong className="highlight hot"> GenAI/LLM</strong>, machine learning, automation, predictive
+            analytics and enterprise AI delivery are now the headline skills.
           </p>
+        </div>
+
+        <div className="ai-highlight-band">
+          <div className="ai-highlight-copy">
+            <p className="eyebrow">Skill highlight section</p>
+            <h3>AI, automation and intelligent product systems.</h3>
+            <p>
+              Built for Director / Principal PM / AVP Product mandates where AI strategy, platform thinking,
+              stakeholder leadership and measurable business impact matter in the same conversation.
+            </p>
+          </div>
+          <div className="ai-highlight-list" aria-label="AI and automation skills">
+            {aiHighlights.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </div>
         </div>
 
         <div className="skill-grid">
           {skillAreas.map((area) => (
             <article className="skill-area" key={area.title}>
               <div className="skill-area-top">
+                <span className="skill-focus">{area.focus}</span>
                 <h3>{area.title}</h3>
                 <p>{area.copy}</p>
               </div>
@@ -1399,10 +1596,11 @@ function App() {
         <div className="contact-panel">
           <div>
             <p className="eyebrow">Available for product leadership conversations</p>
-            <h2>Let us build the next measurable product story.</h2>
+            <h2>Let us build the next AI-led product story.</h2>
             <p>
-              Best fit: AI-enabled transformation, commerce platforms, CRM/ERP modernization, growth systems
-              and teams that need a product leader who can bridge strategy, execution and adoption.
+              Best fit: <strong>Agentic AI</strong>, <strong>GenAI/LLM</strong>, automation, commerce platforms,
+              CRM/ERP modernization, predictive analytics and teams that need a product leader who can bridge
+              strategy, execution and adoption.
             </p>
           </div>
           <div className="contact-actions">
