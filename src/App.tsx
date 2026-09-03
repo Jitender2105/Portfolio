@@ -103,7 +103,7 @@ const roles: Role[] = [
   {
     period: "Oct 2025 - Present",
     company: "Dalmia Bharat Limited",
-    title: "Assistant General Manager - AI Product and Digital Transformation",
+    title: "Assistant General Manager - AI Product Manager and Digital Transformation",
     impact:
       "Leading AI-product strategy, Agentic AI/automation use cases, enterprise application modernization and cross-functional transformation roadmaps.",
   },
@@ -1340,7 +1340,7 @@ function App() {
           <aside className="status-card">
             <strong>Currently at Dalmia Bharat Limited</strong>
             <p>
-              Assistant General Manager - <strong>AI Product and Digital Transformation</strong> leading enterprise
+              Assistant General Manager - <strong>AI Product Manager and Digital Transformation</strong> leading enterprise
               workflows, automation and AI enablement.
             </p>
             <div className="status-stack">
