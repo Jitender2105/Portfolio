@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 type Metric = { value: string; label: string; detail: string };
 type CaseStudy = {
@@ -139,6 +139,12 @@ const recognition = [
 
 const navItems = [["Work", "work"], ["Skills", "skills"], ["Approach", "approach"], ["Experience", "experience"], ["Contact", "contact"]];
 const categories = ["All", "Product", "AI & automation", "Analytics", "Build"] as const;
+const typewriterPhrases = [
+  "Agentic AI workflows",
+  "GenAI and LLM products",
+  "enterprise automation",
+  "predictive intelligence",
+];
 
 const styles = `
   :root { --bg:#090a0c; --panel:#111216; --panel2:#15161b; --ink:#f6f3f0; --muted:#9a9697; --line:#29282d; --coral:#ff6848; --teal:#44c6b0; --gold:#f2b84b; --violet:#a98bff; }
@@ -161,9 +167,9 @@ const styles = `
   .availability::before { background:#56d58a; border-radius:50%; box-shadow:0 0 0 4px rgba(86,213,138,.12); content:""; height:8px; width:8px; }
   h1 { font-size:clamp(54px,7vw,88px); letter-spacing:0; line-height:.93; margin:28px 0 24px; max-width:760px; }
   .accent { color:var(--coral); }
-  .hero-lede { color:#aaa6a6; font-size:clamp(17px,2vw,20px); line-height:1.55; margin:0; max-width:720px; }
+  .hero-lede { color:#aaa6a6; font-size:clamp(17px,2vw,20px); line-height:1.55; margin:0; max-width:720px; min-height:3.1em; }
   .hero-lede strong { color:var(--ink); }
-  .hero-lede .typed-accent { color:var(--coral); font-weight:800; }
+  .hero-lede .typed-accent { border-right:2px solid var(--coral); color:var(--coral); font-weight:800; padding-right:3px; }
   .hero-pitch { border-left:2px solid var(--coral); color:#aaa6a6; line-height:1.55; margin:22px 0 0; max-width:700px; padding-left:16px; }
   .hero-pitch strong { color:var(--ink); }
   .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
@@ -238,7 +244,7 @@ const styles = `
   .contact-box { align-items:center; background:var(--coral); border-radius:18px; color:#160d0a; display:grid; gap:32px; grid-template-columns:1fr auto; padding:48px; }.contact-box .label{color:#160d0a}.contact-box h2{font-size:clamp(38px,5vw,60px);line-height:1;margin:0;max-width:760px}.contact-box p{font-size:17px;line-height:1.55;margin:18px 0 0;max-width:700px}.contact-actions{display:grid;gap:10px}.contact-actions .button{background:#120e0d;border-color:#120e0d;color:white;min-width:210px}.contact-actions .button:last-child{background:transparent;color:#160d0a}
   footer { color:#6f6b6e; display:flex; justify-content:space-between; margin:0 auto; max-width:1180px; padding:28px 0 38px; width:calc(100% - 48px); }
   @media(max-width:980px){.hero{grid-template-columns:1fr}.profile-card{display:grid;gap:20px;grid-template-columns:180px 1fr;text-align:left}.portrait-ring{margin:0}.profile-links{grid-column:2}.metric-grid,.case-grid,.recognition-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.operating-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.operating-step{border-bottom:1px solid var(--line)}.section-head{grid-template-columns:1fr}}
-  @media(max-width:720px){.nav{height:auto;padding:14px 20px}.nav-links{display:none}.wrap{width:calc(100% - 32px)}.hero{gap:32px;min-height:auto;padding:54px 0}.profile-card{display:block;text-align:center}.portrait-ring{margin:0 auto 20px}.profile-links{margin-top:20px}.metric-grid,.case-grid,.project-grid,.ventures,.recognition-grid{grid-template-columns:1fr}.metric-card{min-height:190px}.section{padding:72px 0}.operating-grid{grid-template-columns:1fr}.operating-step{border-right:1px solid var(--line);min-height:auto}.role-card,.education,.contact-box{grid-template-columns:1fr}.role-card{padding:22px}.contact-box{padding:30px}.contact-actions{width:100%}.contact-actions .button{min-width:0}.filter-bar{overflow-x:auto;flex-wrap:nowrap}.filter-bar button{white-space:nowrap}footer{display:grid;gap:8px;width:calc(100% - 32px)}}
+  @media(max-width:720px){.nav{height:auto;padding:14px 20px}.nav-links{display:none}.wrap{width:calc(100% - 32px)}.hero{gap:32px;min-height:auto;padding:54px 0}.hero-lede{min-height:4.65em}.profile-card{display:block;text-align:center}.portrait-ring{margin:0 auto 20px}.profile-links{margin-top:20px}.metric-grid,.case-grid,.project-grid,.ventures,.recognition-grid{grid-template-columns:1fr}.metric-card{min-height:190px}.section{padding:72px 0}.operating-grid{grid-template-columns:1fr}.operating-step{border-right:1px solid var(--line);min-height:auto}.role-card,.education,.contact-box{grid-template-columns:1fr}.role-card{padding:22px}.contact-box{padding:30px}.contact-actions{width:100%}.contact-actions .button{min-width:0}.filter-bar{overflow-x:auto;flex-wrap:nowrap}.filter-bar button{white-space:nowrap}footer{display:grid;gap:8px;width:calc(100% - 32px)}}
   @media(max-width:440px){h1{font-size:48px}.hero-lede{font-size:16px}.metric-grid{grid-template-columns:1fr}.actions .button{width:100%}.skill-cloud{padding:20px}.case-card{min-height:0}}
   @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 `;
@@ -246,11 +252,35 @@ const styles = `
 function App() {
   const [category, setCategory] = useState<(typeof categories)[number]>("All");
   const [query, setQuery] = useState("");
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [typedLength, setTypedLength] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
   const visibleSkills = useMemo(() => skills.filter((skill) => {
     const matchesCategory = category === "All" || skill.category === category;
     return matchesCategory && skill.name.toLowerCase().includes(query.toLowerCase().trim());
   }), [category, query]);
   const technologies = ["OpenAI", "LLM", "Agentic AI", "Power BI", "Snowflake", "SAP", "Oracle HRMS", "AWS", "Firebase", "SQL", "MERN", "Jira"];
+  const activePhrase = typewriterPhrases[phraseIndex];
+
+  useEffect(() => {
+    const phraseComplete = typedLength === activePhrase.length;
+    const phraseEmpty = typedLength === 0;
+    const delay = phraseComplete && !isDeleting ? 1300 : phraseEmpty && isDeleting ? 260 : isDeleting ? 42 : 72;
+    const timer = window.setTimeout(() => {
+      if (phraseComplete && !isDeleting) {
+        setIsDeleting(true);
+        return;
+      }
+      if (phraseEmpty && isDeleting) {
+        setIsDeleting(false);
+        setPhraseIndex((current) => (current + 1) % typewriterPhrases.length);
+        return;
+      }
+      setTypedLength((current) => current + (isDeleting ? -1 : 1));
+    }, delay);
+
+    return () => window.clearTimeout(timer);
+  }, [activePhrase, isDeleting, typedLength]);
 
   return (
     <main className="site-shell">
@@ -265,7 +295,7 @@ function App() {
           <div>
             <span className="availability">Open to AI product leadership opportunities</span>
             <h1>AI Product<br/><span className="accent">Manager.</span></h1>
-            <p className="hero-lede">I build and ship AI-native products — <span className="typed-accent">Agentic AI, GenAI/LLM and enterprise automation</span> — from 0→1 through scale.</p>
+            <p className="hero-lede" aria-label="I build and ship AI-native products: Agentic AI workflows, GenAI and LLM products, enterprise automation and predictive intelligence, from zero to one through scale.">I build and ship AI-native products — <span className="typed-accent" aria-hidden="true">{activePhrase.slice(0, typedLength)}</span> — from 0→1 through scale.</p>
             <p className="hero-pitch">The proposition: an <strong>AI Product Manager who connects strategy with execution and backs every product call with data</strong> — 10+ years, 20+ enterprise products and INR 13 Cr+ in savings.</p>
             <div className="actions">
               <a className="button primary" href="#work">View work →</a>
